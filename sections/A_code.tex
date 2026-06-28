@@ -1,0 +1,15 @@
+The implementation used for the diagnostics follows the finite-volume formulas in Section 4. The essential accepted-step logic is:
+\[
+\begin{array}{l}
+\text{propose } \Delta t,\\
+\text{check the hydrodynamic CFL and recompute if it fails,}\\
+\text{apply the Rusanov shallow-water update,}\\
+\text{compute post-hydrodynamic interface velocities,}\\
+\text{check the local outgoing-flux sediment CFL and recompute if it fails,}\\
+\text{apply upwind sediment advection, exact deposition, and the }\beta\text{ update,}\\
+\text{record mass, sediment-volume, positivity, and CFL diagnostics.}
+\end{array}
+\]
+Rejected trial steps do not overwrite the previously accepted state. The synthetic diagnostics use no downloaded data and no field calibration.
+
+The figures in Section 5 were generated from the recorded theorem diagnostics. The audit used tolerance \(10^{-12}\) for mass conservation, sediment-volume accounting, constant state preservation, positivity lower bounds, deposition formula checks, and CFL limits. These tolerances describe floating-point implementation checks; they are not assumptions in the exact-arithmetic theorem.

@@ -1,0 +1,42 @@
+\section{Notation}
+
+Let \(K_{i,j}\) denote the cell with indices
+\[
+  i=0,\ldots,N_x-1,\qquad j=0,\ldots,N_y-1,
+\]
+with periodic interpretation of all indices. The cell area is \(\Delta x\Delta y\). The shallow-water conservative state is
+\[
+  U_{i,j}^n =
+  \begin{pmatrix}
+  h_{i,j}^n\\ q_{x,i,j}^n\\ q_{y,i,j}^n
+  \end{pmatrix},
+  \qquad
+  q_{x,i,j}^n=h_{i,j}^n u_{i,j}^n,\qquad
+  q_{y,i,j}^n=h_{i,j}^n v_{i,j}^n .
+\]
+The suspended-sediment conservative variable is
+\[
+  s_{i,j}^n = h_{i,j}^n c_{i,j}^n,
+\]
+where \(c\) is dimensionless concentration. The deposited-sediment storage variable is \(\beta_{i,j}^n\), initialized by \(\beta_{i,j}^0=0\). It is separate from the flat hydrodynamic bed.
+
+\begin{table}[H]
+\centering
+\caption{Main symbols}
+\begin{tabular}{ll}
+\toprule
+Symbol & Meaning \\
+\midrule
+\(h\) & water depth \\
+\(q_x,q_y\) & horizontal momenta \\
+\(u,v\) & depth-averaged velocities \\
+\(c\) & dimensionless suspended concentration \\
+\(s=hc\) & suspended sediment volume per unit horizontal area \\
+\(\beta\) & deposited-sediment storage, not hydrodynamic bed elevation \\
+\(w_s\) & settling velocity \\
+\(\lambda_p\) & porosity parameter \\
+\(g\) & gravitational acceleration \\
+\(\Delta x,\Delta y,\Delta t\) & grid spacings and time step \\
+\bottomrule
+\end{tabular}
+\end{table}

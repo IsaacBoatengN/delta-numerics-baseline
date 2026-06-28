@@ -1,0 +1,27 @@
+\section{Parameter and CFL Restrictions}
+
+The theorem is sensitive to the explicit step-size restrictions. For the hydrodynamic part, the sufficient condition is
+\[
+\Delta t\left(\frac{A^n}{\Delta x}+\frac{B^n}{\Delta y}\right)\le\frac12.
+\]
+This bound is used only as a sufficient condition for the one-step lower bound \(m^{n+1}\ge m^n/2\); it is not asserted to be sharp.
+
+For sediment advection, the local outgoing-flux condition is checked cell by cell. A global sufficient bound is
+\[
+2\Delta t\left(\frac{U_s^{n+1}}{\Delta x}+\frac{V_s^{n+1}}{\Delta y}\right)\le1,
+\]
+where
+\[
+U_s^{n+1}=\max_{i,j}|u_{i+1/2,j}^{n+1}|,
+\qquad
+V_s^{n+1}=\max_{i,j}|v_{i,j+1/2}^{n+1}|.
+\]
+The implementation uses the local condition for acceptance and records the global bound as an additional diagnostic.
+
+The settling velocity \(w_s\) appears in the exact deposition multiplier
+\[
+\exp\left(-\frac{w_s\Delta t}{h_{i,j}^{n+1}}\right).
+\]
+For \(w_s\ge0\), this multiplier is nonnegative and no larger than one. Thus deposition cannot create negative suspended sediment in exact arithmetic. Very large \(w_s\Delta t/h\) can, however, make the suspended part extremely small in floating-point arithmetic; this is an implementation concern rather than a change in the exact discrete identity.
+
+No full parameter sensitivity study is claimed here. Tidal forcing, open boundaries, nonflat beds, diffusion, and moving-bed feedback are later numerical extensions, not components of the theorem or the diagnostics in this paper.

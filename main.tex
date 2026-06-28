@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+
+% ======== Packages ========
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{float}
+
+% ======== Fonts ========
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+% ======== Variables ========
+\newcommand{\PaperTitle}{A Conservative and Positivity-Preserving Baseline Scheme for Shallow-Water Flow with Suspended Sediment Deposition}
+\newcommand{\PaperAuthor}{Isaac Boateng Numoah}
+\newcommand{\PaperDate}{June 28, 2026}
+
+% ======== Page Header ========
+\fancyhf{}
+\fancyhead[R]{\sffamily \thepage}
+\cfoot{}
+\pagestyle{fancy}
+\setlength{\headheight}{14.5pt}
+
+% ======== Three-line Table ========
+\newcommand{\threelinetable}[4]{%
+  \begin{table}[htbp]
+    \centering
+    \caption{#1}
+    \begin{tabular}{#2}
+      \toprule
+      #3 \\
+      \midrule
+      #4 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}%
+}
+
+% ======== Code Block ========
+\lstset{
+  frame=topbottom,
+  framerule=0.55pt,
+  framesep=0pt,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color[gray]{0.97},
+  numbers=none,
+  showstringspaces=false,
+  breaklines=true,
+}
+
+% ======== Document ========
+\begin{document}
+
+% ---- Title Page ----
+\thispagestyle{empty}
+\vspace*{4em}
+\begin{center}
+  \LARGE \PaperTitle
+\end{center}
+\vspace{2em}
+\begin{center}
+  \large \PaperAuthor
+\end{center}
+\begin{center}
+  \large Old Dominion University
+\end{center}
+\vspace{8em}
+\begin{center}
+  \PaperDate
+\end{center}
+\vspace{3em}
+\begin{abstract}
+This paper studies a periodic, flat-bed, first-order finite-volume baseline for shallow-water flow coupled to suspended sediment advection and exact deposition into a separate storage variable. The scheme uses a Rusanov hydrodynamic flux, shared interface velocities computed after hydrodynamics, and a local exact deposition update. Under strict wetness and stated CFL restrictions, the baseline theorem proves exact discrete water-mass conservation, exact suspended-plus-stored sediment-volume conservation, a one-step positive-depth bound, nonnegative suspended sediment, and nonnegative concentration. Synthetic theorem-component diagnostics verify that the implementation follows these proved quantities to floating-point tolerance. The scope is restricted: there is no real-river validation, no novelty claim, no nonflat bathymetry, no open boundary, no diffusion, no wetting/drying, and no moving-bed hydrodynamic feedback.
+\end{abstract}
+\newpage
+
+% ---- Contents Page ----
+\pagestyle{empty}
+\tableofcontents
+\newpage
+
+% ---- Main Content ----
+\pagestyle{fancy}
+\input{sections/1_introduction}
+\pagebreak[100]
+\input{sections/2_assumptions}
+\pagebreak[100]
+\input{sections/3_notations}
+\pagebreak[100]
+\input{sections/4_model}
+\pagebreak[100]
+\input{sections/5_results}
+\input{sections/6_sensitivity}
+\input{sections/7_evaluation}
+\pagebreak[100]
+\input{sections/8_conclusions}
+
+% ---- References ----
+\pagebreak[100]
+\addcontentsline{toc}{section}{References}
+\input{references}
+
+% ---- Appendices ----
+\pagebreak[100]
+\appendix
+\section{Reproducibility Notes}
+\input{sections/A_code}
+
+\end{document}

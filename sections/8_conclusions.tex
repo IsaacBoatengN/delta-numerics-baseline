@@ -1,0 +1,7 @@
+\section{Conclusions}
+
+This paper formulated and proved a restricted baseline theorem for a first-order periodic finite-volume scheme coupling shallow-water hydrodynamics, suspended sediment advection, exact deposition, and deposited-sediment storage. Under explicit CFL restrictions and strict wetness, the scheme conserves water mass, conserves total suspended-plus-stored sediment volume, preserves nonnegative suspended sediment and concentration, and satisfies the one-step lower bound \(m^{n+1}\ge m^n/2>0\).
+
+The computational diagnostics are consistent with the theorem specification and with the independent code audit. The results are intentionally limited to synthetic verification of the approved baseline implementation.
+
+Future work should treat nonflat bathymetry, well-balancedness, nonperiodic boundaries, diffusion, erosion and resuspension, moving-bed hydrodynamic feedback, wetting and drying, higher-order accuracy, and convergence studies. Each extension should be accompanied by a separate proof target or explicitly labeled as numerical evidence only.
