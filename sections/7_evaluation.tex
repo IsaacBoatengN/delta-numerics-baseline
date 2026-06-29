@@ -1,7 +1,0 @@
-\section{Evaluation and Limitations}
-
-The main strength of the baseline is that each proved property has a clear discrete mechanism. Water mass and sediment advection are conservative because of periodic flux cancellation. Suspended-to-stored sediment transfer is exact because the same removed suspended volume is inserted into \(\beta\). Positivity of \(s^*\) follows from a nonnegative linear-combination argument under the local outgoing-flux CFL. Positivity of \(c\) follows only after the hydrodynamic step has produced a strictly positive depth.
-
-The main weakness is the narrow scope. Periodic boundaries avoid boundary flux choices and are not a river-mouth boundary condition. The flat bed avoids source-term balance issues. The storage variable \(\beta\) does not feed back into the shallow-water update. The theorem also omits diffusion, erosion, resuspension, wetting and drying, and higher-order reconstruction.
-
-The numerical figures should be read accordingly. They verify selected implementation diagnostics on synthetic test cases, but they do not replace the mathematical proof and do not validate the model for a physical estuary or river mouth.
